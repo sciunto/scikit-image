@@ -157,7 +157,6 @@ def polygon_perimeter(cr, cc, shape=None, clip=False):
 
     Examples
     --------
-    >>> from skimage.draw import polygon_perimeter
     >>> img = np.zeros((10, 10), dtype=np.uint8)
     >>> rr, cc = polygon_perimeter([5, -1, 5, 10],
     ...                            [-1, 5, 11, 5],
