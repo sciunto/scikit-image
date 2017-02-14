@@ -26,6 +26,7 @@ __all__ = ['load',
            'clock',
            'coffee',
            'coins',
+           'hdr_images',
            'horse',
            'hubble_deep_field',
            'immunohistochemistry',
@@ -384,3 +385,34 @@ def stereo_motorcycle():
     return (load("motorcycle_left.png"),
             load("motorcycle_right.png"),
             np.load(_os.path.join(data_dir, "motorcycle_disp.npz"))["arr_0"])
+
+
+def hdr_images():
+    """
+    Bracket images useful for High Dynamic Range (HDR) imaging.
+    Images taken from the UNIS building on Svalbard, overlooking the 
+    Hjorthfjellet mountain.
+  
+    Returns
+    -------
+    ims : list 
+          list containing the images
+    exp : list
+         list of exposure times in sec 
+
+    Notes
+    -----
+    These images were taken by Pål Ellingsen and are released into the public
+    domain (CC-0).
+    """
+
+    files = ['UNIS_EV-2.jpg',
+             'UNIS_EV0.jpg',
+             'UNIS_EV2.jpg']
+
+    exp = [1 / 1250., 1 / 320, 1 / 40]
+
+    ims = []
+    for f in files:
+        ims.append(load(f))
+    return ims, exp
